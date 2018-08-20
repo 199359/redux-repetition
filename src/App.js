@@ -8,7 +8,6 @@ class App extends Component {
       <div className="App">
         <Router>
           <div>
-            <Link to={'/'} >Hello</Link>
             <Link to={'/hello'} >Hello</Link>
             <Link to={'/hello/world'} >World</Link>
           <Switch>
