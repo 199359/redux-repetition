@@ -1,8 +1,11 @@
-    import { createStore, combineReducers, compose } from "redux";
+    import { createStore, combineReducers, compose, applyMiddleware } from "redux";
     import smartComponent from './state/smartComponent'
+    import users from './state/users'
+    import thunk from 'redux-thunk'
 
 const reducer = combineReducers({
-    smartComponent
+    smartComponent,
+    users
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
@@ -10,5 +13,8 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
 export const store = createStore(
     reducer,
-    composeEnhancers()
+    composeEnhancers(
+        applyMiddleware(thunk)
+    )
 )
+
