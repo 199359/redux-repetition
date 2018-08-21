@@ -21,6 +21,20 @@ export const stopUserSyncAction = () => (dispatch, getState) => {
     database.ref('/jfddl5-users').off()
 }
 
+export const addCowToListAction = () => (dispatch, getState) => {
+    database.ref('/jfddl5-users').push({
+        name: 'Dupa'
+    })
+}
+
+export const deleteUserSyncAction = (key) => (dispatch, getState) => {
+    const url = `https://ad-snadbox.firebaseio.com/jfddl5-users/${key}/.json`
+    const request = {
+        method: 'DELETE'
+    }
+    fetch(url, request)
+}
+
 const initialState = {
     users: null
 }
